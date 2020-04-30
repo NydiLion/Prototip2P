@@ -1,3 +1,10 @@
+
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import javax.swing.JOptionPane;
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -26,6 +33,26 @@ public class Maestros1 extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        txt_buscar = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
+        label_status = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        txt_CorreoEM = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        txt_nombreM = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
+        txt_codigoM = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        txt_EstatusM = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
+        txt_DireccionM = new javax.swing.JTextField();
+        txt_TelefonoM = new javax.swing.JTextField();
+        registro = new javax.swing.JButton();
+        eliminar = new javax.swing.JButton();
+        modificar = new javax.swing.JButton();
+        buscar = new javax.swing.JButton();
+
         setClosable(true);
         setIconifiable(true);
         setMaximizable(true);
@@ -36,21 +63,279 @@ public class Maestros1 extends javax.swing.JInternalFrame {
         }
         setVisible(true);
 
+        jLabel6.setText("Correo Electronico:");
+
+        label_status.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+
+        jLabel1.setText("Nombre Maestro:");
+
+        jLabel4.setText("Codigo Maestro:");
+
+        jLabel7.setText("Estatus Maestro:");
+
+        jLabel3.setText("Ingresa el código del Maestro: ");
+
+        jLabel2.setText("Direccion Maestro:");
+
+        jLabel5.setText("Telefono Maestro:");
+
+        registro.setText("REGISTRO");
+        registro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                registroActionPerformed(evt);
+            }
+        });
+
+        eliminar.setText("ELIMINAR");
+        eliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                eliminarActionPerformed(evt);
+            }
+        });
+
+        modificar.setText("MODIFICAR");
+        modificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                modificarActionPerformed(evt);
+            }
+        });
+
+        buscar.setText("BUSCAR");
+        buscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buscarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 670, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel2)
+                            .addComponent(txt_DireccionM, javax.swing.GroupLayout.DEFAULT_SIZE, 269, Short.MAX_VALUE)
+                            .addComponent(jLabel4)
+                            .addComponent(txt_codigoM))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1)
+                            .addComponent(txt_nombreM, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel7)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(txt_EstatusM, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 257, Short.MAX_VALUE)
+                                .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(txt_TelefonoM, javax.swing.GroupLayout.Alignment.LEADING)))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel6)
+                            .addComponent(txt_CorreoEM, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel3)
+                                .addGap(41, 41, 41)
+                                .addComponent(txt_buscar)
+                                .addGap(83, 83, 83))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(160, 160, 160)
+                                .addComponent(label_status, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(modificar)
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                    .addGap(8, 8, 8)
+                                    .addComponent(registro))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(buscar)
+                                    .addGap(2, 2, 2)))
+                            .addComponent(eliminar))
+                        .addGap(177, 177, 177))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 449, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel4)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txt_codigoM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txt_nombreM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(33, 33, 33)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel5))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txt_DireccionM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txt_TelefonoM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel6)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txt_CorreoEM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jLabel7)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txt_EstatusM, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(59, 59, 59)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel3)
+                            .addComponent(txt_buscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(label_status, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(registro)
+                        .addGap(34, 34, 34)
+                        .addComponent(eliminar)
+                        .addGap(27, 27, 27)
+                        .addComponent(modificar)
+                        .addGap(125, 125, 125)
+                        .addComponent(buscar)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void registroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registroActionPerformed
+        try{
+            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/Uni1", "root", "");
+            PreparedStatement pst = cn.prepareStatement("insert into clientes values(?,?,?,?,?,?,?)");
+            pst.setString(1, "0");
+            pst.setString(2, txt_codigoM.getText().trim());
+            pst.setString(3, txt_nombreM.getText().trim()); 
+            pst.setString(5, txt_DireccionM.getText().trim());
+            pst.setString(6, txt_TelefonoM.getText().trim());
+            pst.setString(7, txt_CorreoEM.getText().trim());
+            pst.setString(8, txt_EstatusM.getText().trim());
+            pst.executeUpdate();
+            txt_codigoM.setText("");
+            txt_nombreM.setText("");
+            txt_DireccionM.setText("");
+            txt_TelefonoM.setText("");
+            txt_CorreoEM.setText("");
+            txt_EstatusM.setText("");
+            label_status.setText("Registro exitoso.");
+            {
+                JOptionPane.showMessageDialog(null, "Maestro Registrado.");
+            }
+        }catch (Exception e){
+
+        }
+    }//GEN-LAST:event_registroActionPerformed
+
+    private void eliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarActionPerformed
+        //Codigo que permite borrar registros en la base de datos
+        try {
+            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/Uni1", "root", "");
+            PreparedStatement pst = cn.prepareStatement("delete from maestro where Codigomaestro = ?");
+
+            pst.setString(1, txt_buscar.getText().trim());
+            pst.executeUpdate();
+
+            txt_codigoM.setText("");
+            txt_nombreM.setText("");
+            txt_DireccionM.setText("");
+            txt_TelefonoM.setText("");
+            txt_CorreoEM.setText("");
+            txt_EstatusM.setText("");
+            label_status.setText("Registro eliminado.");
+            {
+                JOptionPane.showMessageDialog(null, "Se Elimino Registro del Maestro.");
+            }
+        } catch (Exception e) {
+        }
+
+    }//GEN-LAST:event_eliminarActionPerformed
+
+    private void modificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modificarActionPerformed
+        //Codigo que permite actualizar registros en la base de datos
+        try {
+            String ID = txt_buscar.getText().trim();
+
+            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/Uni1", "root", "");
+            PreparedStatement pst = cn.prepareStatement("update maestro set Codigo = ?, Nombre = ?,  Direccion = ?, Telefono= ?, Correo = ?, Estatus = ? where ID = " + ID);
+
+            pst.setString(1, "0");
+            pst.setString(1, txt_codigoM.getText().trim());
+            pst.setString(2, txt_nombreM.getText().trim());
+            
+            pst.setString(4, txt_DireccionM.getText().trim());
+            pst.setString(5, txt_TelefonoM.getText().trim());
+            pst.setString(6, txt_CorreoEM.getText().trim());
+            pst.setString(7, txt_EstatusM.getText().trim());
+            pst.executeUpdate();
+
+            label_status.setText("Modificación exitosa.");
+            {
+                JOptionPane.showMessageDialog(null, "se a modificado el registro del Maestro.");
+            }
+        } catch (Exception e) {
+        }
+
+    }//GEN-LAST:event_modificarActionPerformed
+
+    private void buscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarActionPerformed
+        //Codigo que permite consultar registros en la base de datos
+        try{
+            Connection cn = DriverManager.getConnection("jdbc:mysql://localhost/Uni1", "root", "");
+            PreparedStatement pst = cn.prepareStatement("select * from maestro where ID = ?");
+            pst.setString(1, txt_buscar.getText().trim());
+
+            ResultSet rs = pst.executeQuery();
+
+            if(rs.next()){
+                txt_codigoM.setText(rs.getString("Codigo"));
+                txt_nombreM.setText(rs.getString("Nombre"));
+               
+                txt_DireccionM.setText(rs.getString("Direccion"));
+                txt_TelefonoM.setText(rs.getString("Telefono"));
+                txt_CorreoEM.setText(rs.getString("Correo"));
+                txt_EstatusM.setText(rs.getString("Estatus"));
+            } else {
+                JOptionPane.showMessageDialog(null, "Maestro no registrado.");
+            }
+
+        }catch (Exception e){
+
+        }
+
+    }//GEN-LAST:event_buscarActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton buscar;
+    private javax.swing.JButton eliminar;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel label_status;
+    private javax.swing.JButton modificar;
+    private javax.swing.JButton registro;
+    private javax.swing.JTextField txt_CorreoEM;
+    private javax.swing.JTextField txt_DireccionM;
+    private javax.swing.JTextField txt_EstatusM;
+    private javax.swing.JTextField txt_TelefonoM;
+    private javax.swing.JTextField txt_buscar;
+    private javax.swing.JTextField txt_codigoM;
+    private javax.swing.JTextField txt_nombreM;
     // End of variables declaration//GEN-END:variables
 }
