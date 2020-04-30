@@ -9,7 +9,11 @@
  * @author snake
  */
 public class ContenedorP2p extends javax.swing.JFrame {
-
+private Alumnos1 nuevaVentana1;
+private Maestros1 nuevaVentana2;
+private AsignacionAlumn1 nuevaVentana3;
+private AsignacionMaestros1 nuevaVentana4;
+private Sedes1 nuevaVentana5;
     /**
      * Creates new form ContenedorP2p
      */
@@ -57,6 +61,11 @@ public class ContenedorP2p extends javax.swing.JFrame {
         catalogo.setText("Catalogos");
 
         alumnos.setText("Alumnos");
+        alumnos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                alumnosActionPerformed(evt);
+            }
+        });
         catalogo.add(alumnos);
 
         maestros.setText("Maestros");
@@ -92,6 +101,11 @@ public class ContenedorP2p extends javax.swing.JFrame {
         informes.setText("Informes");
 
         sedes.setText("Sedes");
+        sedes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sedesActionPerformed(evt);
+            }
+        });
         informes.add(sedes);
 
         jMenuBar1.add(informes);
@@ -140,20 +154,33 @@ public class ContenedorP2p extends javax.swing.JFrame {
     }//GEN-LAST:event_salirActionPerformed
 
     private void maestrosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_maestrosActionPerformed
-        // TODO add your handling code here:
+    nuevaVentana2=new Maestros1();
+     jDesktopPane1.add (nuevaVentana2);
     }//GEN-LAST:event_maestrosActionPerformed
 
     private void asigalumnosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_asigalumnosActionPerformed
-        // TODO add your handling code here:
+    nuevaVentana3=new AsignacionAlumn1();
+     jDesktopPane1.add (nuevaVentana3);
     }//GEN-LAST:event_asigalumnosActionPerformed
 
     private void asigmastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_asigmastroActionPerformed
-        // TODO add your handling code here:
+    nuevaVentana4=new AsignacionMaestros1();
+     jDesktopPane1.add (nuevaVentana4);
     }//GEN-LAST:event_asigmastroActionPerformed
 
     private void salidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salidaActionPerformed
     dispose();
     }//GEN-LAST:event_salidaActionPerformed
+
+    private void alumnosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_alumnosActionPerformed
+     nuevaVentana1=new Alumnos1();
+     jDesktopPane1.add (nuevaVentana1);
+    }//GEN-LAST:event_alumnosActionPerformed
+
+    private void sedesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sedesActionPerformed
+    nuevaVentana5=new Sedes1();
+     jDesktopPane1.add (nuevaVentana5);
+    }//GEN-LAST:event_sedesActionPerformed
 
     /**
      * @param args the command line arguments
