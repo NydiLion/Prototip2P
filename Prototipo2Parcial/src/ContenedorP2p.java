@@ -9,7 +9,11 @@
  * @author snake
  */
 public class ContenedorP2p extends javax.swing.JFrame {
-
+private Alumnos1 nuevaVentana1;
+private Maestros1 nuevaVentana2;
+private AsignacionAlumn1 nuevaVentana3;
+private AsignacionMaestros1 nuevaVentana4;
+private Sedes1 nuevaVentana5;
     /**
      * Creates new form ContenedorP2p
      */
@@ -26,21 +30,157 @@ public class ContenedorP2p extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jDesktopPane1 = new javax.swing.JDesktopPane();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        catalogo = new javax.swing.JMenu();
+        alumnos = new javax.swing.JMenuItem();
+        maestros = new javax.swing.JMenuItem();
+        procesos = new javax.swing.JMenu();
+        asigalumnos = new javax.swing.JMenuItem();
+        asigmastro = new javax.swing.JMenuItem();
+        informes = new javax.swing.JMenu();
+        sedes = new javax.swing.JMenuItem();
+        herramientas = new javax.swing.JMenu();
+        ayuda = new javax.swing.JMenu();
+        salir = new javax.swing.JMenu();
+        salida = new javax.swing.JMenuItem();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
+        jDesktopPane1.setLayout(jDesktopPane1Layout);
+        jDesktopPane1Layout.setHorizontalGroup(
+            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 865, Short.MAX_VALUE)
+        );
+        jDesktopPane1Layout.setVerticalGroup(
+            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 419, Short.MAX_VALUE)
+        );
+
+        catalogo.setText("Catalogos");
+
+        alumnos.setText("Alumnos");
+        alumnos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                alumnosActionPerformed(evt);
+            }
+        });
+        catalogo.add(alumnos);
+
+        maestros.setText("Maestros");
+        maestros.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                maestrosActionPerformed(evt);
+            }
+        });
+        catalogo.add(maestros);
+
+        jMenuBar1.add(catalogo);
+
+        procesos.setText("Procesos");
+
+        asigalumnos.setText("AsignacionA");
+        asigalumnos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                asigalumnosActionPerformed(evt);
+            }
+        });
+        procesos.add(asigalumnos);
+
+        asigmastro.setText("AsignacionM");
+        asigmastro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                asigmastroActionPerformed(evt);
+            }
+        });
+        procesos.add(asigmastro);
+
+        jMenuBar1.add(procesos);
+
+        informes.setText("Informes");
+
+        sedes.setText("Sedes");
+        sedes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sedesActionPerformed(evt);
+            }
+        });
+        informes.add(sedes);
+
+        jMenuBar1.add(informes);
+
+        herramientas.setText("Herramientas");
+        jMenuBar1.add(herramientas);
+
+        ayuda.setText("Ayuda");
+        jMenuBar1.add(ayuda);
+
+        salir.setText("Salir");
+        salir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                salirActionPerformed(evt);
+            }
+        });
+
+        salida.setText("OUT");
+        salida.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                salidaActionPerformed(evt);
+            }
+        });
+        salir.add(salida);
+
+        jMenuBar1.add(salir);
+
+        setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addComponent(jDesktopPane1)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addComponent(jDesktopPane1)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salirActionPerformed
+
+    }//GEN-LAST:event_salirActionPerformed
+
+    private void maestrosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_maestrosActionPerformed
+    nuevaVentana2=new Maestros1();
+     jDesktopPane1.add (nuevaVentana2);
+    }//GEN-LAST:event_maestrosActionPerformed
+
+    private void asigalumnosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_asigalumnosActionPerformed
+    nuevaVentana3=new AsignacionAlumn1();
+     jDesktopPane1.add (nuevaVentana3);
+    }//GEN-LAST:event_asigalumnosActionPerformed
+
+    private void asigmastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_asigmastroActionPerformed
+    nuevaVentana4=new AsignacionMaestros1();
+     jDesktopPane1.add (nuevaVentana4);
+    }//GEN-LAST:event_asigmastroActionPerformed
+
+    private void salidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salidaActionPerformed
+    dispose();
+    }//GEN-LAST:event_salidaActionPerformed
+
+    private void alumnosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_alumnosActionPerformed
+     nuevaVentana1=new Alumnos1();
+     jDesktopPane1.add (nuevaVentana1);
+    }//GEN-LAST:event_alumnosActionPerformed
+
+    private void sedesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sedesActionPerformed
+    nuevaVentana5=new Sedes1();
+     jDesktopPane1.add (nuevaVentana5);
+    }//GEN-LAST:event_sedesActionPerformed
 
     /**
      * @param args the command line arguments
@@ -78,5 +218,19 @@ public class ContenedorP2p extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuItem alumnos;
+    private javax.swing.JMenuItem asigalumnos;
+    private javax.swing.JMenuItem asigmastro;
+    private javax.swing.JMenu ayuda;
+    private javax.swing.JMenu catalogo;
+    private javax.swing.JMenu herramientas;
+    private javax.swing.JMenu informes;
+    private javax.swing.JDesktopPane jDesktopPane1;
+    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem maestros;
+    private javax.swing.JMenu procesos;
+    private javax.swing.JMenuItem salida;
+    private javax.swing.JMenu salir;
+    private javax.swing.JMenuItem sedes;
     // End of variables declaration//GEN-END:variables
 }
